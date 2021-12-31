@@ -6,12 +6,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <Windows.h>
+#include <vector>
 #include <tchar.h>
 
 using namespace std;
 void inputWord(string& word)
 {
-	cout << "‰p’PŒê‚ð“ü—Í‚µ‚Ä‚­‚¾‚³‚¢(¬•¶Žš)  \"Exit\":I—¹,  \"Print\":output.txt‚É‹L˜^" << endl;
+	cout << "è‹±å˜èªžã‚’å…¥åŠ›ã—ã¦ãã ã•ã„(å°æ–‡å­—)  \"Exit\":çµ‚äº†,  \"Print\":output.txtã«è¨˜éŒ²" << endl;
 	cin >> word;
 }
 bool findMap(unordered_map<string, string>& map, const string& word)
@@ -32,7 +33,7 @@ int main(int argc, char** argv)
 	string value{};
 	unordered_map<std::string, std::string> map;
 	vector<string> keyBuffer;
-	ofstream ofs("C:/En2Ja/output.txt", ios_base::app | ios_base::out);
+	ofstream ofs("./output.txt", ios_base::app | ios_base::out);
 	if (ofs.bad())
 	{
 		cout << "Error" << endl;
@@ -45,13 +46,13 @@ int main(int argc, char** argv)
 	else
 		word = string(argv[1]);
 	if (word == "Exit")return 0;
-	if (word == "Print") cout << "‚Ü‚¾‰½‚à“ü—Í‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ." << endl;
+	if (word == "Print") cout << "ã¾ã ä½•ã‚‚å…¥åŠ›ã•ã‚Œã¦ã„ã¾ã›ã‚“" << endl;
 	else if (findMap(map, word))
 	{
 		keyBuffer.push_back(word);
 	}
 	else
-		cout << "Œ©‚Â‚©‚è‚Ü‚¹‚ñ‚Å‚µ‚½" << endl;
+		cout << "è¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã§ã—ãŸ" << endl;
 	cout << endl;
 	for (int i = 2; i < argc; i++)
 	{
@@ -72,7 +73,7 @@ int main(int argc, char** argv)
 			keyBuffer.push_back(word);
 		}
 		else
-			cout << "Œ©‚Â‚©‚è‚Ü‚¹‚ñ‚Å‚µ‚½" << endl;
+			cout << "è¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã§ã—ãŸ"<< endl;
 		cout << endl;
 	}
 	while (true)
@@ -94,7 +95,7 @@ int main(int argc, char** argv)
 			keyBuffer.push_back(word);
 		}
 		else
-			cout << "Œ©‚Â‚©‚è‚Ü‚¹‚ñ‚Å‚µ‚½" << endl;
+			cout << "è¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã§ã—ãŸ" << endl;
 		cout << endl;
 	}
 	ofs.close();
@@ -104,7 +105,7 @@ int main(int argc, char** argv)
 void init(string& key, string& value, unordered_map<string, string>& map)
 {
 	ifstream istr{};
-	istr.open("C:/En2Ja/ejdict-hand-utf8.txt");
+	istr.open("./ejdict-hand-utf8.txt");
 	if (istr.fail())
 	{
 		cout << "error" << endl;
