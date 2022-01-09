@@ -1,1 +1,7 @@
 bin
+CMakeFiles
+.ninja_deps
+.ninja_log
+*.cmake
+CMakeCache.txt
+*.ninja

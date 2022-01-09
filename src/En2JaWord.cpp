@@ -9,10 +9,12 @@
 #include <vector>
 #include <tchar.h>
 
+
 using namespace std;
+const  std::string En2JaVersion = "0.0.1";
 void inputWord(string& word)
 {
-	cout << "英単語を入力してください(小文字)  \"Exit\":終了,  \"Print\":output.txtに記録" << endl;
+	cout << "英単語を入力してください(小文字)  \"Exit\":終了,  \"Print\":output.txtに記録, \"Help\"：ヘルプを表示" << endl;
 	cin >> word;
 }
 bool findMap(unordered_map<string, string>& map, const string& word)
@@ -46,7 +48,12 @@ int main(int argc, char** argv)
 	else
 		word = string(argv[1]);
 	if (word == "Exit")return 0;
-	if (word == "Print") cout << "まだ何も入力されていません" << endl;
+	else if (word == "Print") cout << "まだ何も入力されていません" << endl;
+	else if (word == "Help") 
+	{
+		cout<< "En2Ja Version:" << En2JaVersion << endl;
+		cout << "" << endl;
+	}
 	else if (findMap(map, word))
 	{
 		keyBuffer.push_back(word);
